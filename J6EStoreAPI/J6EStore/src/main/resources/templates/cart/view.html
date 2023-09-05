@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/shared/layout::dynamic(~{::title},~{::main})}">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title th:fragment="title">Quản lý giỏ hàng</title>
+</head>
+
+<body>
+	<main th:fragment="main">
+
+		<div class="container-fluid">
+			<div class="row bg-success mb-3">
+				<h2 class=" mt-1">Quản Lí Giỏ Hàng</h2>
+			</div>
+			<div class="row mt-4 text-center">
+
+				<form action="/cart/update" method="post">
+					<table border="1" class="table">
+						<thead>
+							<tr>
+
+								<th scope="col">Id</th>
+								<th scope="col">Name</th>
+								<th scope="col">Price</th>
+								<th scope="col">Quantity</th>
+								<th scope="col">Amount</th>
+								<th scope="col">#</th>
+
+							</tr>
+
+						</thead>
+						<tbody class="table-group-divider">
+							<tr th:each="item: ${@cart.items}">
+
+								<td th:text="${item.id}">Id</td>
+								<td th:text="${item.name}">Name</td>
+								<td th:text="${item.price}">Price</td>
+								<td><input th:name="@{|qty_${item.id}|}" type="number" th:value="${item.quantity}"></td>
+								<td th:text="${item.amount}">Amount</td>
+								<td>
+									<a class="text-decoration-none text-dark" th:href="@{|/cart/remove/${item.id}|}"><b>Remove</b></a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<div class=" row mt-2">
+						<div class="col-md-5">
+							<button class="btn btn-outline-dark"><b>Update Quantity</b></button>
+							<button type="button" class="btn btn-outline-success ">
+								<a class="text-decoration-none text-dark" href="/order/checkout"><b>Checkout</b></a>
+							</button>
+							<button type="button" class="btn btn-outline-success ">
+								<a class="text-decoration-none text-dark" href="/cart/clear"><b>Clear Cart</b></a>
+							</button>
+						</div>
+						<div class="col-md-7">
+		
+						</div>
+	
+					</div>
+		
+					
+				</form>
+			</div>
+			
+
+
+	</main>
+</body>
+
+</html>

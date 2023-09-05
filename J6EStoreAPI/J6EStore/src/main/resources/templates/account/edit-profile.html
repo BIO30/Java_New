@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/shared/layout::dynamic(~{::title},~{::main})}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:fragment="title">Cập nhật tài khoản</title>
+</head>
+
+<body>
+    <main th:fragment="main">
+		<div class="container">
+			<div class="row bg-success mb-3">
+				<h2 class="text-center mt-1">Chỉnh sửa tài khoản</h2>
+			</div>
+			<div class="row " >
+				<div class="col-md-3"></div>
+				<div class="col-md-6 ">
+					
+	
+		<form action="/account/edit-profile" method="post" enctype="multipart/form-data">
+				<label class="text-danger"><i th:text="${message}"></i></label>
+				<div th:object="${account}" >
+			<div class="mb-3">
+			  <label  class="form-label">Username:</label>
+			  <input type="text" class="form-control"  aria-describedby="emailHelp" th:field="*{username}" readonly>
+			 
+			</div>
+			<div class="mb-3">
+			  <label class="form-label">Fullname:</label>
+			  <input type="text" class="form-control"  th:field="*{fullname}">
+			</div>
+			
+			<div class="mb-3">
+			  <label class="form-label">Email Address:</label>
+			  <input type="email" class="form-control"  th:field="*{email}">
+			</div>
+			<div class="mb-3">
+			  <label class="form-label">Photo:</label>
+			  <input class="form-control"  th:field="*{photo}">
+			</div>
+			<button  class="btn btn-primary">Update</button>
+			<div class="mb-3">
+		
+				<input class="form-control" th:field="*{password}" type="hidden">
+			  </div>
+		  </form>
+		</div>
+				</div>
+				<div class="col-md-3"></div>
+			</div>
+		</div>
+     
+    </main>
+</body>
+
+</html>

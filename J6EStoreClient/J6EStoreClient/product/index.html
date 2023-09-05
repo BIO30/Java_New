@@ -1,0 +1,91 @@
+
+<div class="container">
+    <div class="row">
+        <main>
+           
+            <h2 class="mt-3"><b>Quản Lý Sản Phẩm</b></h2>
+            <div class="row mt-3">
+                <div class="col-md-5 mb-4">
+                    <form class="mt-3">
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label"><b>Id:</b></label>
+                          <input class="form-control" ng-model="form.id" readonly placeholder="Auto Number" >
+                       
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label"><b>Name Product:</b></label>
+                          <input  class="form-control" ng-model="form.name" >
+                        </div>
+                      
+                        <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label"><b>Image:</b></label>
+                          <input  class="form-control" ng-model="form.image">
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label"><b>Price:</b></label>
+                          <input  class="form-control" ng-model="form.price">
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label"><b>Category:</b></label>
+                          <select ng-model="form.category.id">
+                            <option ng-repeat="c in categories" ng-value="c.id">{{c.name}}</option>
+                        </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label"><b>Available:</b></label>
+                            <input ng-model="form.available" type="radio" ng-value="true"> Yes
+                            <input ng-model="form.available" type="radio" ng-value="false"> No
+                          </div>
+                          <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label"><b>Create Date:</b></label>
+                            <input  class="form-control" ng-model="form.createDate">
+                          </div>
+                        <button ng-click="create()" class="btn btn-outline-warning">Create</button>
+                        <button ng-click="update()" class="btn btn-outline-warning">Update</button>
+                        <button ng-click="delete(form.id)" class="btn btn-outline-warning">Delete</button>
+                        <button ng-click="reset()" class="btn btn-outline-warning">Reset</button>
+                      </form>
+                </div>
+          
+            </div>
+
+
+            <table border="1" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Image</th>
+                        <th>Price</th>
+                        <th>Category</th>
+                        <th>Avilable</th>
+                        <th>Create Date</th>
+                        <th>Edit</th>
+                    </tr>
+                </thead>
+                <tbody  class="table-group-divider">
+                    <tr ng-repeat="item in list">
+                        <td>{{$index+1}}</td>
+                        <td>{{item.id}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.image}}</td>
+                        <td>{{item.price}}</td>
+                        <td>{{item.category.name}}</td>
+                        <td>{{item.available}}</td>
+                        <td>{{item.createDate}}</td>
+                        <td>
+                            <a class="text-decoration-none text-success" ng-click="edit(item.id)" href="">Edit</a> |
+                            <a class="text-decoration-none text-success" ng-click="delete(item.id)" href="">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+           
+        
+        
+        
+        
+        </main>
+    </div>
+</div>

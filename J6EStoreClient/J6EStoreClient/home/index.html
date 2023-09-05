@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .image-container {
+            position: relative; /* Đặt vị trí tương đối để chứa ảnh và văn bản */
+            display: inline-block; /* Đảm bảo phần tử con nằm cạnh nhau */
+        }
+
+        .background-image {
+            display: block;
+            width: 100%;
+            height: auto;
+            opacity: 0.5; /* Điều chỉnh độ mờ */
+        }
+
+        .overlay-text {
+            position: absolute; /* Đặt vị trí tuyệt đối để viết chữ đè lên ảnh */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: rgb(12, 11, 11);
+            font-size: 29px;
+            font-weight: bold;
+            text-align: center;
+            background-color: rgba(199, 249, 150, 0.5); /* Điều chỉnh độ mờ và màu nền */
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img src="/images/galweb-banner.jpg" alt="Background Image" class="background-image">
+        <div class="overlay-text"><b><i>{{message}}</i></b></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;J6EStore/src/main/resources/static/rsx/images/banner1.jpg!bwr800&apos; to &apos;banner1.jpg&apos;" description="Rename resource &apos;banner1.jpg!bwr800&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/resources/static/rsx/images/banner1.jpg!bwr800" name="banner1.jpg" stamp="1692276058056" updateReferences="true"/>
+</session>

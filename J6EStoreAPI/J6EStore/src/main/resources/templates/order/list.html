@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/shared/layout::dynamic(~{::title},~{::main})}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:fragment="title">Quản lý đơn hàng</title>
+</head>
+
+<body>
+    <main th:fragment="main">
+
+			
+		<div class="container">
+            <div class="row bg-success mb-3">
+                <h2 class="text-center mt-1" > Quản lí Đơn Hàng</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 "> </div>
+                <div class="col-md-3"></div>
+            </div>
+			
+            <div class="row">
+				<table style="width:100%" border="1">
+					<thead class="text-center">
+						<tr>
+							<th>No</th>
+							<th>Id</th>
+							<th>Shipping Address</th>
+							<th>Created Date</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody class="table-group-divider text-center">
+						<tr th:each="o, s: ${user.orders}">
+							<td th:text="${s.count}">Index</td>
+							<td th:text="${o.id}">Id</td>
+							<td th:text="${o.address}">Shipping Address</td>
+							<td th:text="${o.createDate}">Created Date</td>
+							<td>
+								<a class="btn btn-outline-warning text-decoration-none" th:href="@{|/order/detail/${o.id}|}">Detail</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+            </div>
+        </div>
+
+
+
+
+
+       
+    </main>
+</body>
+
+</html>
